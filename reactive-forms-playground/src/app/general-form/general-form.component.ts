@@ -30,7 +30,7 @@ export class GeneralFormComponent {
     Validators.pattern('^[0-9]*$'),
     Validators.maxLength(11),
     Validators.min(1)]],
-    date: [null, [Validators.required, this.noFutureDateValidator(), this.noTooPastDateValidator()]]
+    date: [null, [Validators.required, this.noFutureDateValidator(), this.noToPastDateValidator()]]
   });
 
   finish() {
@@ -55,7 +55,7 @@ export class GeneralFormComponent {
     };
   
   }
-  noTooPastDateValidator(): ValidatorFn {
+  noToPastDateValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       const selectedDate = new Date(control.value);
       const today = new Date();
